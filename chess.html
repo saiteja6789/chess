@@ -1,0 +1,258 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <title>chessBoard</title>
+    </head>
+    <style>
+        body {
+            background-image: url("https://i.pinimg.com/originals/d6/aa/82/d6aa82bf6c37530d7521fd3f4164d516.jpg");
+        }
+        
+        #chessBoard {
+            display: inline-block;
+            border: 2px solid black;
+            transform: translate(55%, 0%);
+        }
+        
+        #chessBoard div {
+            line-height: 1px;
+        }
+        
+        #chessBoard span {
+            width: 90px;
+            height: 90px;
+        }
+        
+        #chessBoard div:nth-child(odd) span:nth-child(even),
+        #chessBoard div:nth-child(even) span:nth-child(odd) {
+            background-color: darkgray;
+        }
+        
+        #chessBoard div:nth-child(even),
+        span:nth-child(even),
+        #chessBoard div:nth-child(odd) span:nth-child(odd) {
+            background-color: snow;
+        }
+        
+        .cellCenter {
+            text-align: center;
+            font-size: 63px;
+            vertical-align: middle;
+            display: table-cell;
+        }
+    </style>
+
+
+    <body>
+
+        <div id="chessBoard"></div>
+        <script>
+            var size = 8;
+
+
+            var chessBoard = document.getElementById("chessBoard");
+
+            for (var i = 0; i < size; i++) {
+                var row = document.createElement("div");
+                chessBoard.append(row);
+                for (var j = 0; j < size; j++) {
+                    t = document.createElement("span");
+                    row.append(t);
+                    t.setAttribute("id", `${i+1}-${j+1}`);
+                    t.classList.add("cellCenter");
+
+                }
+            }
+            var coin = {
+                black: {
+                    br: {
+                        symbol: '♜',
+
+                        position: '1-1',
+
+
+                    },
+                    bn: {
+                        symbol: '♞',
+
+                        position: '1-2'
+                    },
+                    bb: {
+                        symbol: '♝',
+
+                        position: '1-3'
+                    },
+                    bq: {
+                        symbol: '♛',
+
+                        position: '1-4'
+                    },
+                    bk: {
+                        symbol: '♚',
+
+                        position: '1-5'
+                    },
+                    bb1: {
+                        symbol: '♝',
+
+                        position: '1-6'
+                    },
+                    bn1: {
+                        symbol: '♞',
+
+                        position: '1-7'
+                    },
+                    br1: {
+                        symbol: '♜',
+
+                        position: '1-8'
+                    },
+                    bp1: {
+                        symbol: '♟',
+
+                        position: '2-1'
+                    },
+                    bp2: {
+                        symbol: '♟',
+
+                        position: '2-2'
+                    },
+                    bp3: {
+                        symbol: '♟',
+
+                        position: '2-3'
+                    },
+                    bp4: {
+                        symbol: '♟',
+
+                        position: '2-4'
+                    },
+                    bp5: {
+                        symbol: '♟',
+
+                        position: '2-5'
+                    },
+                    bp6: {
+                        symbol: '♟',
+
+                        position: '2-6'
+                    },
+                    bp7: {
+                        symbol: '♟',
+
+                        position: '2-7'
+                    },
+                    bp8: {
+                        symbol: '♟',
+
+                        position: '2-8'
+                    },
+
+                }
+            }
+
+
+            var blackKeys = Object.keys(coin['black']);
+            blackKeys.forEach((bk) => {
+                console.log()
+                var rootKey = coin['black'];
+                document.getElementById(rootKey[bk]['position']).append(rootKey[bk]['symbol']);
+            })
+            var coins = {
+                white: {
+                    wr: {
+                        symbol: '♖',
+
+                        position: '8-1',
+
+                    },
+                    wn: {
+                        symbol: '♘',
+
+                        position: '8-2'
+                    },
+                    wb: {
+                        symbol: '♗',
+
+                        position: '8-3'
+                    },
+                    wq: {
+                        symbol: '♕',
+
+                        position: '8-4'
+                    },
+                    wk: {
+                        symbol: '♔',
+
+                        position: '8-5'
+                    },
+                    wb1: {
+                        symbol: '♗',
+
+                        position: '8-6'
+                    },
+                    wn1: {
+                        symbol: '♘',
+
+                        position: '8-7'
+                    },
+                    wr1: {
+                        symbol: '♖',
+
+                        position: '8-8'
+                    },
+                    wp1: {
+                        symbol: '♙',
+
+                        position: '7-1'
+                    },
+                    wp2: {
+                        symbol: '♙',
+
+                        position: '7-2'
+                    },
+                    wp3: {
+                        symbol: '♙',
+
+                        position: '7-3'
+                    },
+                    wp4: {
+                        symbol: '♙',
+
+                        position: '7-4'
+                    },
+                    wp5: {
+                        symbol: '♙',
+
+                        position: '7-5'
+                    },
+                    wp6: {
+                        symbol: '♙',
+
+                        position: '7-6'
+                    },
+                    wp7: {
+                        symbol: '♙',
+
+                        position: '7-7'
+                    },
+                    wp8: {
+                        symbol: '♙',
+
+                        position: '7-8'
+                    },
+
+                }
+            }
+
+            var whiteKeys = Object.keys(coins['white']);
+            whiteKeys.forEach((wk) => {
+                var rootKey = coins['white'];
+                document.getElementById(rootKey[wk]['position']).append(rootKey[wk]['symbol']);
+            })
+        </script>
+
+    </body>
+
+    </html>
